@@ -18,21 +18,21 @@ At a high level, the steps to bypass this password protection are as follows:
 The reason this process works is because within the compressed .xlsm file package contain the project files in Open XML format. Specifically, the vbaProject.bin file contains the "DPB" key which defines the encrypted password of the file, however when that key is void by changing its name, the reference for the key breaks, resulting in an exposed project. 
 
 ## Usage
-Bash: 
-`git clone https://github.com/cdnet01/Crack-Protected-VBA.git`
-`cd Crack-Protected-VBA`
-`mv [VBA File Path] .`
+Bash: \
+`git clone https://github.com/cdnet01/Crack-Protected-VBA.git` \
+`cd Crack-Protected-VBA` \
+`mv [VBA File Path] .` \
 `./crackProtectedVBA.sh [VBA File Name]`
 
-Powershell:
-`wget raw.githubusercontent.com/cdnet01/Crack-Protected-VBA/main/crackProtectedVba.ps1`
-`Move-Item -Path [VBA File Path] -Destination .`
+Powershell: \
+`wget raw.githubusercontent.com/cdnet01/Crack-Protected-VBA/main/crackProtectedVBA.ps1` \
+`Move-Item -Path [VBA File Path] -Destination .` \
 `.\crackProtectedVBA.ps1 [VBA File Name]`
 
-OR
-`git clone https://github.com/cdnet01/Crack-Protected-VBA.git`
-`cd Crack-Protected-VBA`
-`Move-Item -Path [VBA File Path] -Destination .`
+OR \
+`git clone https://github.com/cdnet01/Crack-Protected-VBA.git` \
+`cd Crack-Protected-VBA` \
+`Move-Item -Path [VBA File Path] -Destination .` \
 `.\crackProtectedVBA.ps1 [VBA File Name]`
 
 Ultimately, exposing the protected VBA code could reveal useful sensitive information. 
