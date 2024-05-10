@@ -1,6 +1,6 @@
 # Crack-Protected-VBA
 
-A .xlsm file is an excel file that contains Visual Basic Application (VBA) macros. Oftentimes, these macros can contain sensitive information, depending on the purpose of the file. Because of this, oftentimes, developers will protect their VBA source code with a password (as seen below). This simple bash script will bypass the password and allow a user to view, manipulate, and save the original VBA code. 
+A .xlsm file is an excel file that contains Visual Basic Application (VBA) macros. Oftentimes, these macros can contain sensitive information, depending on the purpose of the file. Because of this, oftentimes, developers will protect their VBA source code with a password (as seen below). This simple script will bypass the password and allow a user to view, manipulate, and save the original VBA code. 
 
 ![vba password](https://www.top-password.com/images/vba-project-password.png)
 
@@ -16,6 +16,24 @@ At a high level, the steps to bypass this password protection are as follows:
   7. Convert the new .zip file back to a .xlsm file
 
 The reason this process works is because within the compressed .xlsm file package contain the project files in Open XML format. Specifically, the vbaProject.bin file contains the "DPB" key which defines the encrypted password of the file, however when that key is void by changing its name, the reference for the key breaks, resulting in an exposed project. 
+
+## Usage
+Bash: 
+`git clone https://github.com/cdnet01/Crack-Protected-VBA.git`
+`cd Crack-Protected-VBA`
+`mv [VBA File Path] .`
+`./crackProtectedVBA.sh [VBA File Name]`
+
+Powershell:
+`wget raw.githubusercontent.com/cdnet01/Crack-Protected-VBA/main/crackProtectedVba.ps1`
+`Move-Item -Path [VBA File Path] -Destination .`
+`.\crackProtectedVBA.ps1 [VBA File Name]`
+
+OR
+`git clone https://github.com/cdnet01/Crack-Protected-VBA.git`
+`cd Crack-Protected-VBA`
+`Move-Item -Path [VBA File Path] -Destination .`
+`.\crackProtectedVBA.ps1 [VBA File Name]`
 
 Ultimately, exposing the protected VBA code could reveal useful sensitive information. 
 
